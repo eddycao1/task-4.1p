@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/start_bt"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/pause_bt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Time"
+        app:srcCompat="@android:drawable/btn_star" />
+
+    <ImageView
+        android:id="@+id/pause_bt"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/stop_bt"
+        app:layout_constraintStart_toEndOf="@+id/start_bt"
+        app:layout_constraintTop_toBottomOf="@+id/chronometer"
+        app:srcCompat="@android:drawable/btn_star" />
+
+    <TextView
+        android:id="@+id/Time"
+        android:layout_width="325dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="103dp"
+        android:layout_marginLeft="103dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="220dp"
+        android:layout_marginRight="220dp"
+        android:layout_marginBottom="634dp"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.987"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.156" />
+
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="106dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="145dp"
+        android:layout_marginRight="145dp"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Time" />
+
+    <ImageView
+        android:id="@+id/stop_bt"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginRight="41dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pause_bt"
+        app:layout_constraintTop_toBottomOf="@+id/Time"
+        app:srcCompat="@android:drawable/btn_star" />
+
+    <EditText
+        android:id="@+id/Type"
+        android:layout_width="130dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="212dp"
+        android:layout_marginRight="212dp"
+        android:layout_marginBottom="60dp"
+        android:ems="10"
+        android:hint="push ups"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginBottom="52dp"
+        android:text="Enter your workout type:"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Type"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

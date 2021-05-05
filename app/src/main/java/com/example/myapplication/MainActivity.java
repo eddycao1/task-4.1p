@@ -3,6 +3,8 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.os.SystemClock;
@@ -13,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.InterruptedIOException;
+
 public class MainActivity extends AppCompatActivity {
     private Chronometer chronometer;
     private boolean running, started = false, stop_presssed = false, pause_presssed = false;
@@ -22,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Button test;
     private TextView time;
     private String recorded_time, Workout_record;
+
 
 
     @Override
@@ -39,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
         start.setImageResource(R.drawable.start);
         pause.setImageResource(R.drawable.pause);
         stop.setImageResource(R.drawable.stop);
+
+        if(!stop_presssed){
+           load_data();
+        }
 
 
         start.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +104,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    public void load_data(){
+        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        String Recorded_type = sharedPreferences.getString("workout_type","");
+        String Recorded_time = sharedPreferences.getString("time","");
+        time.setText("You spent " + Recorded_time + " on " + Recorded_type + " last time.");
+    }
 
     public void start() {
         if (running == false) {
@@ -131,6 +146,15 @@ public class MainActivity extends AppCompatActivity {
         recorded_time = chronometer.getText().toString();
         Workout_record = type.getText().toString();
         time.setText("You spent " + recorded_time + " on " + Workout_record + " last time.");
+        SharedPreferences pref = getSharedPreferences("data", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+
+
+
+        editor.putString("time", recorded_time);
+        editor.putString("workout_type", Workout_record);
+
+        editor.apply();
 
 
         chronometer.setBase(SystemClock.elapsedRealtime());
